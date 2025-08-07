@@ -1,65 +1,91 @@
 # Data Analysis using Databricks & PySpark
 
 ## Overview
-This project demonstrates how to perform **data analysis** using **Databricks** and **PySpark**. It covers key steps including loading, transforming, and analyzing data stored in various file formats. This project leverages **Azure Databricks** and **Azure Storage Services** for distributed data processing and storage. Azure Databricks provides a collaborative environment for running PySpark workloads, while Azure Storage is used to store datasets like `ball_by_ball`, `match`, `player`, and other cricket-related data.
-
----
-### Features of the Infrastructure:
-1. **Azure Databricks**:
-   - Collaborative environment for running PySpark.
-   - High-performance data analysis with Spark clusters.
-2. **Azure Storage Services**:
-   - Datasets are securely stored in Azure Blob Storage.
-   - Optimized for scalable and reliable data access.
-
-   
-## Features
-1. **Data Loading**: Loading structured and semi-structured data (e.g., CSV, JSON, Parquet) into PySpark DataFrames.
-2. **Data Transformation**:
-   - Filtering, grouping, and aggregations.
-   - Using SQL queries with `createOrReplaceTempView`.
-3. **Data Analysis**:
-   - Performing exploratory data analysis (EDA).
-   - Deriving insights using window functions and advanced PySpark transformations.
-4. **Data Integration**:
-   - Joining multiple datasets (e.g., `ball_by_ball`, `match`, `player`, `team`).
-5. **Visualizations**: Using Databricks' built-in visualization tools to create charts and graphs.
+This project showcases the use of **PySpark** within **Azure Databricks** to conduct scalable data analysis on structured cricket datasets. It involves reading data from multiple formats, applying transformations, executing SQL-like operations, and generating insights. The infrastructure is built using **Azure Databricks** for distributed computing and **Azure Blob Storage** to store datasets such as `ball_by_ball`, `match`, `player`, and more.
 
 ---
 
-## Dataset Details
-The project uses cricket-related datasets to perform analysis. Below are the key datasets used:
-1. **Ball-by-Ball Dataset**:
-   - Contains detailed ball-by-ball match data.
-   - Key columns: `match_id`, `team_batting`, `runs_scored`, `wides`, `noballs`.
+### Cloud Infrastructure Highlights
 
-2. **Match Dataset**:
-   - Includes metadata for cricket matches.
-   - Key columns: `match_id`, `team1`, `team2`, `match_date`, `season_year`.
+- **Azure Databricks**:
+  - Provides a collaborative, notebook-based environment.
+  - Supports parallel processing with Apache Spark for large-scale data workloads.
 
-3. **Player Dataset**:
-   - Player profile data.
-   - Key columns: `player_id`, `player_name`, `batting_hand`, `bowling_skill`.
-
-4. **Team Dataset**:
-   - Contains team metadata.
-   - Key columns: `team_id`, `team_name`.
-
-5. **Player-Match Dataset**:
-   - Links players to matches with additional performance details.
-   - Key columns: `player_match_sk`, `match_id`, `player_id`, `is_manofthematch`.
+- **Azure Blob Storage**:
+  - Ensures reliable and scalable data storage.
+  - Used as the primary source for loading raw cricket data.
 
 ---
 
-## Installation
+## Key Functionalities
 
-### Prerequisites
-- **Databricks**: An active Databricks workspace.
-- **Python**: Python 3.8 or above.
-- **PySpark**: Installed in your Databricks cluster.
+- **Data Ingestion**:
+  - Load CSV, JSON, and Parquet files into Spark DataFrames.
+  - Read data directly from Azure Blob Storage.
 
-## Dashboard from Databricks
+- **Data Transformation**:
+  - Apply filters, aggregations, and column manipulations.
+  - Use temporary views to run Spark SQL for flexible querying.
 
-![alt text](image.png)
+- **Exploratory Analysis**:
+  - Perform EDA to uncover trends and patterns.
+  - Use window functions and analytical operations.
+
+- **Data Merging**:
+  - Join multiple datasets (`ball_by_ball`, `match`, `team`, etc.) for enriched context.
+
+- **Visualization**:
+  - Leverage built-in visualization tools in Databricks notebooks.
+  - Generate charts and plots for interactive insights.
+
+---
+
+## Dataset Description
+
+The analysis is based on real-world cricket data. Main datasets include:
+
+- **Ball-by-Ball**: Every delivery is logged with attributes like `match_id`, `team_batting`, `runs_scored`, `extras`.
+- **Match Info**: Metadata including `match_id`, `teams`, `date`, and `season_year`.
+- **Players**: Player-level information (`player_id`, `batting_hand`, `bowling_skill`).
+- **Teams**: Mapping of `team_id` to `team_name`.
+- **Player-Match**: Association of players to matches, including awards like `is_manofthematch`.
+
+---
+
+## Setup Instructions
+
+### Requirements
+
+- An active **Azure Databricks** workspace.
+- **Python 3.8+**
+- Cluster with **Apache Spark** and **PySpark** installed.
+
+### How to Run
+
+1. Upload the datasets to DBFS or mount your Azure Blob Storage to `/mnt/cricket/`.
+2. Open the Databricks notebook (`cricket_data_analysis.py`) under the `notebooks/` directory.
+3. Run each cell to load, transform, and analyze the data.
+4. Use `display()` functions in Databricks to visualize the output.
+
+---
+
+## Sample Dashboard Output
+
+![Dashboard Screenshot](image.png)
+
+---
+
+## Author
+
+**SAHIL RAJ**  
+[GitHub Profile](https://github.com/Sahil28517)  
+
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 
